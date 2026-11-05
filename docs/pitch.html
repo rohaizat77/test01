@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CikguAI – pitch summary</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Helvetica Neue", Arial, sans-serif; color: #14173d; font-size: 8.5pt; line-height: 1.3; }
+  .page { width: 210mm; height: 296mm; overflow: hidden; padding: 8mm 12mm; display: flex; flex-direction: column; gap: 2.4mm; }
+  header { background: #1b1f4b; color: #fff; border-radius: 5mm; padding: 5mm 6.5mm; }
+  .eyebrow { font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; color: #ffc53d; font-weight: 700; }
+  h1 { font-size: 19pt; margin: 1.5mm 0 1mm; line-height: 1.05; font-weight: 800; }
+  h1 em { color: #ffc53d; font-style: normal; }
+  header p { margin: 2mm 0 0; color: #dfe1f5; max-width: 160mm; }
+  .url { margin-top: 3mm; font-weight: 700; color: #ffc53d; }
+  h2 { font-size: 11.5pt; margin: 0 0 1.5mm; font-weight: 800; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3.6mm; }
+  .card { border: 1px solid #ece6d4; border-radius: 4mm; padding: 2.8mm 3.6mm; background: #fdfbf6; }
+  ul { margin: 0; padding-left: 4.5mm; }
+  li { margin: 0 0 .5mm; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+  .stat { border-radius: 3mm; padding: 2.6mm 3mm; background: #f7f3e8; }
+  .stat b { display: block; font-size: 14pt; color: #f2603e; }
+  .stat span { font-size: 7.8pt; }
+  .loop { background: #1b1f4b; color: #fff; border-radius: 4mm; padding: 3.5mm 4mm; }
+  .loop ol { display: grid; grid-template-columns: repeat(6, 1fr); gap: 2mm; padding: 0; margin: 1.5mm 0 0; list-style: none; counter-reset: s; }
+  .loop li { background: rgba(255,255,255,.08); border-radius: 2.5mm; padding: 2mm; font-size: 7.6pt; counter-increment: s; }
+  .loop li::before { content: counter(s); display: block; color: #ffc53d; font-weight: 800; font-size: 11pt; }
+  footer { margin-top: auto; font-size: 7.5pt; color: #5b5f7e; border-top: 1px solid #ece6d4; padding-top: 2.5mm; }
+  .tag { display: inline-block; background: #5560d8; color: #fff; border-radius: 99px; padding: .4mm 2.4mm; font-size: 7.5pt; font-weight: 700; margin-right: 1mm; }
+  .tag.sun { background: #f5ad1b; color: #14173d; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="eyebrow">Gamuda Hackathon · Challenge 2: AI for Education &amp; Learning</div>
+    <h1>CikguAI: every student at their own pace, <em>every teacher sees who needs help.</em></h1>
+    <p>A bilingual (Bahasa Melayu + English) Socratic AI tutor, adaptive practice engine and teacher's assistant for Malaysian secondary schools, starting with KSSM Form 2 Mathematics and Science.</p>
+    <div class="url">challenge2.rohaizat.cloud · one-click “Try as Student” / “Try as Teacher”</div>
+  </header>
+
+  <section>
+    <h2>The problem</h2>
+    <div class="stats">
+      <div class="stat"><b>41%</b><span>of Malaysian 15-year-olds reached baseline maths proficiency in PISA 2022 (OECD average 69%).</span></div>
+      <div class="stat"><b>397</b><span>Malaysia's PISA 2025 maths score, down another 11 points.</span></div>
+      <div class="stat"><b>1 : 30</b><span>One teacher, thirty students, thirty different gaps, and marking and planning that eat the time to close them.</span></div>
+    </div>
+  </section>
+
+  <div class="grid">
+    <section class="card">
+      <h2>For students (mobile-first)</h2>
+      <ul>
+        <li><b>Socratic AI tutor:</b> hints and questions, not answers. Snap a photo of your working and it finds the exact wrong step.</li>
+        <li><b>Adaptive quizzes:</b> each question targets your weakest skill at ~70% predicted success.</li>
+        <li><b>“Your next 3 things to study”</b>, with reasons (weak, recent mistakes, unlocks the next topic).</li>
+        <li><b>XP, streaks, badges, daily goal</b> and a weekly class board that rewards effort.</li>
+      </ul>
+    </section>
+    <section class="card">
+      <h2>For teachers</h2>
+      <ul>
+        <li><b>AI-assisted marking:</b> rubric-based draft grades with evidence, feedback and confidence. Nothing is released until the teacher approves.</li>
+        <li><b>Class insights:</b> mastery heatmap, at-risk students, repeated misconceptions, suggested groups, AI weekly summary.</li>
+        <li><b>Lesson planner:</b> KSSM-aligned plans built around the class's own data; edit, export to Word/PDF.</li>
+        <li><b>Worksheets:</b> bilingual questions with answer keys; approve the best into the adaptive bank.</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="loop">
+    <h2 style="color:#ffc53d">The demo loop: from one wrong answer to a targeted lesson</h2>
+    <ol>
+      <li>Aiman gets a factorisation question wrong (sign error).</li>
+      <li>The tutor diagnoses the gap, Socratically.</li>
+      <li>Adaptive quiz targets it at the right difficulty.</li>
+      <li>Mastery rises live: 12% → 39% → 73%.</li>
+      <li>Teacher sees the 8-student sign-error cluster.</li>
+      <li>One click: a remedial lesson plan for that class.</li>
+    </ol>
+  </section>
+
+  <div class="grid">
+    <section class="card">
+      <h2>How AI and ML are used</h2>
+      <ul>
+        <li><span class="tag">ML</span><b>Bayesian Knowledge Tracing</b> estimates mastery of 13 KSSM skills after every answer.</li>
+        <li><span class="tag">ML</span><b>Elo/Rasch ratings</b> calibrate question difficulty from real answers and pick the next question.</li>
+        <li><span class="tag">Data</span>Wrong options are tagged with the <b>misconception</b> they reveal; the dashboard counts repeated ones.</li>
+        <li><span class="tag sun">Claude</span>Tutoring (streamed), photo diagnosis, rubric grading, class summaries, lesson plans and question generation, all with schema-validated output.</li>
+      </ul>
+    </section>
+    <section class="card">
+      <h2>Responsible by design</h2>
+      <ul>
+        <li>Teachers approve every grade and every AI-written question before students see it.</li>
+        <li>Mastery never depends on the AI; scores are clamped and totalled in code.</li>
+        <li>Students are pseudonymised before class data is sent to the AI; photos are stripped of GPS and stored privately.</li>
+        <li>Teachers see tutor use per topic, not the chats. Methodology and limitations are public.</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="card">
+    <h2>What's next</h2>
+    <p style="margin:0">Forms 1–5 and SPM subjects (Add Maths, Physics, Chemistry, Biology) · voice tutoring in BM and English · parent portal · offline-first PWA for rural schools · integration with school systems (e.g. Google Classroom) · fit BKT parameters per skill from pilot data and measure learning gains.</p>
+  </section>
+
+  <footer>Stack: React · Fastify on Node 22 · SQLite · Claude (claude-opus-5-5) · KaTeX · nginx + Let's Encrypt. Sources: OECD PISA 2022 Country Note Malaysia; The Star 8 Sep 2026 (PISA 2025); Corbett &amp; Anderson 1995; Pelánek 2016. Details at challenge2.rohaizat.cloud/methodology.</footer>
+</div>
+</body>
+</html>

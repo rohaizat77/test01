@@ -1,0 +1,30 @@
+[Unit]
+Description=CikguAI (challenge2.rohaizat.cloud) - AI for Education & Learning hackathon app
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=cikguai
+Group=cikguai
+WorkingDirectory=/opt/cikguai
+EnvironmentFile=/opt/cikguai/.env
+Environment=NODE_ENV=production
+ExecStart=/usr/bin/node /opt/cikguai/dist/server/index.js
+Restart=always
+RestartSec=3
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/cikguai/data
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+
+[Install]
+WantedBy=multi-user.target
