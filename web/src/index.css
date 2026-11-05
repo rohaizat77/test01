@@ -1,0 +1,175 @@
+@import "tailwindcss";
+@import "@fontsource-variable/figtree";
+@import "@fontsource-variable/bricolage-grotesque";
+@import "katex/dist/katex.min.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Figtree Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink-950: #0b0d26;
+  --color-ink-900: #14173d;
+  --color-ink-800: #1b1f4b;
+  --color-ink-700: #272c6b;
+  --color-ink-600: #3a41a0;
+  --color-ink-500: #5560d8;
+  --color-ink-400: #7c86f0;
+  --color-ink-300: #a9b0f7;
+  --color-ink-100: #e6e8fd;
+  --color-sun-500: #f5ad1b;
+  --color-sun-400: #ffc53d;
+  --color-sun-300: #ffd76e;
+  --color-sun-100: #fff3cf;
+  --color-coral-500: #f2603e;
+  --color-coral-400: #ff7a59;
+  --color-coral-100: #ffe6de;
+  --color-mint-500: #16a06d;
+  --color-mint-400: #2bc48a;
+  --color-mint-100: #d9f6ea;
+  --color-paper-50: #fdfbf6;
+  --color-paper-100: #f7f3e8;
+  --color-paper-200: #ece6d4;
+
+  --color-lvl-new: #c9cbe0;
+  --color-lvl-learning: #ff7a59;
+  --color-lvl-developing: #ffc53d;
+  --color-lvl-mastered: #2bc48a;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+  :root.dark {
+    color-scheme: dark;
+  }
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-paper-50 text-ink-900 antialiased dark:bg-ink-950 dark:text-ink-100;
+    font-family: var(--font-sans);
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ink-500 dark:outline-sun-400;
+  }
+}
+
+@utility card {
+  @apply rounded-3xl border border-paper-200 bg-white p-5 shadow-[0_1px_0_rgba(27,31,75,0.04),0_10px_30px_-18px_rgba(27,31,75,0.35)] dark:border-white/8 dark:bg-ink-900 dark:shadow-none;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@utility btn-primary {
+  @apply btn bg-ink-800 text-white hover:bg-ink-700 dark:bg-sun-400 dark:text-ink-900 dark:hover:bg-sun-300;
+}
+
+@utility btn-sun {
+  @apply btn bg-sun-400 text-ink-900 hover:bg-sun-300 shadow-[0_3px_0_#d48f0a];
+}
+
+@utility btn-ghost {
+  @apply btn border border-ink-800/15 bg-transparent text-ink-800 hover:bg-ink-800/5 dark:border-white/15 dark:text-ink-100 dark:hover:bg-white/5;
+}
+
+@utility input {
+  @apply w-full rounded-2xl border border-paper-200 bg-white px-4 py-3 text-base text-ink-900 placeholder:text-ink-900/40 focus:border-ink-500 focus:outline-none focus:ring-4 focus:ring-ink-500/15 dark:border-white/10 dark:bg-ink-900 dark:text-ink-100 dark:placeholder:text-ink-100/35;
+}
+
+@utility label {
+  @apply mb-1.5 block text-sm font-bold text-ink-800 dark:text-ink-100/90;
+}
+
+@utility eyebrow {
+  @apply text-xs font-extrabold tracking-[0.14em] text-ink-500 uppercase dark:text-sun-400;
+}
+
+@utility muted {
+  @apply text-ink-900/60 dark:text-ink-100/60;
+}
+
+@utility chip {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-ink-800/10 bg-white px-3 py-1.5 text-sm font-semibold text-ink-800 transition hover:border-ink-500 dark:border-white/10 dark:bg-ink-900 dark:text-ink-100 dark:hover:border-sun-400;
+}
+
+/* Notebook grid, used sparingly on hero areas. */
+.grid-paper {
+  background-image: linear-gradient(rgba(85, 96, 216, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(85, 96, 216, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.dark .grid-paper {
+  background-image: linear-gradient(rgba(169, 176, 247, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(169, 176, 247, 0.06) 1px, transparent 1px);
+}
+
+.katex {
+  font-size: 1.05em;
+}
+.katex-display {
+  margin: 0.6em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 2px 0;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.rise {
+  animation: rise 0.4s ease-out both;
+}
+@keyframes pop {
+  0% {
+    transform: scale(0.9);
+  }
+  60% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.pop {
+  animation: pop 0.35s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise,
+  .pop {
+    animation: none;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print-plain {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+}
