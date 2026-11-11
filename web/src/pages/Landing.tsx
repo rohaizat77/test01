@@ -252,6 +252,7 @@ export default function Landing() {
           </a>
           <ThemeSwitch />
         </div>
+        <p className="w-full text-center muted">Copyright © 2026</p>
       </footer>
     </div>
   );
